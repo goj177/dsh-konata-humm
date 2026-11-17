@@ -1,0 +1,30 @@
+{
+  "name": "dsh-konata-humm",
+  "version": "1.2.4",
+  "private": true,
+  "description": "模型在思考过程中发出 humm……时播放泉此方怪叫。",
+  "type": "module",
+  "main": "./index.js",
+  "files": [
+    "index.js",
+    "bundle.patch.yml",
+    "README.md",
+    "build/konata-humm.wav",
+    "build/darwin-*/konata-humm-player",
+    "build/win32-*/konata-humm-player.exe",
+    "build/licenses/*.txt"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./bundle.patch.yml"
+    }
+  },
+  "scripts": {
+    "build:bundle": "node scripts/build-bundle.mjs",
+    "prepack": "node scripts/build-bundle.mjs --check",
+    "test": "node --test humm-check.mjs"
+  }
+}
